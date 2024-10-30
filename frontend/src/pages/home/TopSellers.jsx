@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from 'react'
+import BookCard from '../books/BookCard';
 
 const categories = ['Choose a genre', 'Business', 'Fiction', 'Horror', 'Adventure'];
 
@@ -33,13 +34,8 @@ const TopSellers = () => {
             {/* book list */}
             {
             filteredBooks.map((book, index) => (
-                <div key={index} className='flex flex-col items-center gap-6 mb-8'>
-                    <img src={book.image} alt={book.title} className='object-cover w-full h-60'/>
-                    <h3 className='text-xl font-medium mb-2'>{book.title}</h3>
-                    <p className='text-sm'>By {book.author}</p>
-                    <p className='text-sm'>{book.category}</p>
-                </div>
-                ))
+                <BookCard key={index} book={book} />
+            ))
             }
         </div>
     )
