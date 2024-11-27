@@ -1,7 +1,10 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { FaGoogle } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 
 const Login = () => {
+  const [message, setMessage] = useState("")
+
   return (
     <div className='h-[100vh] border flex justify-center items-center'>
         <div className='w-full max-w-sm mx-auto bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4'>
@@ -24,6 +27,9 @@ const Login = () => {
                         focus:outline-none focus:shadow-outline'
                     />
                 </div>
+                {
+                    message && <p className='text-red-500 text-xs italic mb-3'>{message}</p>
+                }
                 <div>
                     <button className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-8
                         rounded focus:outline-none'>
@@ -31,7 +37,21 @@ const Login = () => {
                     </button>
                 </div>
             </form>
-            <p className='align-baseline font-medium mt-4 text-sm'>Haven&apos;t got an account? Please <Link to="/register" className='text-blue-500 hover:text-blue-700'>Register</Link></p>
+            <p className='align-baseline font-medium mt-4 text-sm'>
+                Haven&apos;t got an account? Please 
+                <Link to="/register" className='text-blue-500 hover:text-blue-700'> Register</Link>
+            </p>
+            {/* google sign in */}
+            <div className='mt-4'>
+                <button 
+                // onClick={handleGoogleSignIn}
+                className='w-full flex flex-wrap gap-1 items-center justify-center bg-secondary hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none'>
+                <FaGoogle  className='mr-2'/>
+                Sign in with Google
+                </button>
+            </div>
+
+            <p className='mt-5 text-center text-gray-500 text-xs'>©2025 Book Store. All rights reserved.</p>
         </div>
     </div>
   )
