@@ -33,10 +33,23 @@ export const cartSlice = createSlice({
         });
       }
     },
+    removeFromCart: (state, action) => {
+      state.cartItems = state.cartItems.filter(item => item._id !== action.payload._id);
+       Swal.fire({
+        position: "center",
+        icon: "success",
+        title: "Successfully removed from cart",
+        showConfirmButton: false,
+        timer: 1500
+    });
+    },
+    clearCart: (state) => {
+      state.cartItems = [];
+    },
   },
 })
 
 // Action creators are generated for each case reducer function
-export const { addToCart } = cartSlice.actions
+export const { addToCart, removeFromCart, clearCart } = cartSlice.actions
 
 export default cartSlice.reducer
