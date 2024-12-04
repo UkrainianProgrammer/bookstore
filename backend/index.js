@@ -2,10 +2,11 @@ const express = require('express');
 const app = express();
 const port = process.env.PORT || 3000
 
+require('dotenv').config();
 const mongoose = require('mongoose');
 
 async function main() {
-  await mongoose.connect('mongodb://127.0.0.1:27017/test');
+  await mongoose.connect(process.env.DB_URL);
   app.get('/', (req, res) => {
     res.send('Book Server is running')
   });
