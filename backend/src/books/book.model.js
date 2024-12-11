@@ -16,7 +16,7 @@ const mongoose = require('mongoose');
     trending: {
         type: Boolean,
         required: true,
-    },,
+    },
     coverImage: {
         type: String,
         required: true,
