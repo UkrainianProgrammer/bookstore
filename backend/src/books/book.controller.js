@@ -1,6 +1,6 @@
 const Book = require("./book.model");
 
-const postABook = async (req, res) => {
+const postBook = async (req, res) => {
     try {
         const newBook = await Book({...req.body});
         await newBook.save();
@@ -21,4 +21,8 @@ const getAllBooks = async (req, res) => {
     }
 };
 
-module.exports = { postABook, getAllBooks };
+const getBook = async (req, res) => {
+
+};
+
+module.exports = { postBook, getAllBooks, getBook };
