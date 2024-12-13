@@ -1,6 +1,6 @@
 const express = require('express');
 const Book = require('./book.model');
-const { postBook, getAllBooks, getBook } = require('./book.controller');
+const { postBook, getAllBooks, getBook, updateBook, deleteBook } = require('./book.controller');
 const router = express.Router();
 
 // frontend -> backend server -> controller -> book schema -> database -> send data to the server -> frontend
@@ -12,6 +12,12 @@ router.post('/create-book', postBook);
 router.get('/', getAllBooks);
 
 // get single book
-router.get('/', getBook);
+router.get('/:id', getBook);
+
+// update book
+router.put('/edit/:id', updateBook);
+
+// delete book
+router.delete('/delete/:id', deleteBook);
 
 module.exports = router;
